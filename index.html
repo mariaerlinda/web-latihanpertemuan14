@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuroevolution Web Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js for the fitness graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Simulation Panel -->
+        <div class="panel main-simulation">
+            <header>
+                <h1>Evolution Simulator</h1>
+                <div class="stats">
+                    <span id="gen-counter">Gen: 1</span>
+                    <span id="alive-counter">Alive: 0</span>
+                </div>
+            </header>
+            <div class="canvas-container">
+                <canvas id="simCanvas"></canvas>
+            </div>
+            <div class="controls">
+                <button id="btn-play">▶ Play</button>
+                <button id="btn-pause">⏸ Pause</button>
+                <div class="divider"></div>
+                <button id="btn-draw" class="toggle">🖍 Draw Obstacle</button>
+                <button id="btn-clear-obs">🗑 Clear Obstacles</button>
+                <div class="divider"></div>
+                <button id="btn-save">💾 Save Best Brain</button>
+                <button id="btn-load">📂 Load Brain</button>
+                <div class="speed-control">
+                    <label for="speed-slider">Speed:</label>
+                    <input type="range" id="speed-slider" min="1" max="10" value="1">
+                    <span id="speed-val">1x</span>
+                </div>
+            </div>
+            <p class="hint">Draw obstacles in the main view. Drones will evolve to reach the green target.</p>
+        </div>
+
+        <!-- Side Panels for Data -->
+        <div class="side-panels">
+            <div class="panel neural-network">
+                <h2>Active Neural Diagram (Best Drone)</h2>
+                <div class="canvas-container">
+                    <canvas id="networkCanvas"></canvas>
+                </div>
+            </div>
+            
+            <div class="panel fitness-graph">
+                <h2>Evolution Progress</h2>
+                <div class="canvas-container">
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/math.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/drone.js"></script>
+    <script src="js/environment.js"></script>
+    <script src="js/population.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
